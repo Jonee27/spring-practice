@@ -1,9 +1,9 @@
 package com.example.springpractice;
 
-import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
 
-@Scope("session")
-public class SpyGirl {
+@Service
+public class SpyService {
 
     public String iSaySomething() {
         return "I am a spy!";
