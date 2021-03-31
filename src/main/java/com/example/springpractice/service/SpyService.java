@@ -1,8 +1,8 @@
-package com.example.springpractice;
+package com.example.springpractice.service;
 
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("spying")
 public class SpyService {
 
     public String iSaySomething() {
