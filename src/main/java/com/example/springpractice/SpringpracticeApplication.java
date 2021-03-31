@@ -1,13 +1,10 @@
 package com.example.springpractice;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Bean;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 //@Configuration
@@ -20,10 +17,15 @@ import java.util.Arrays;
 @SpringBootApplication
 public class SpringpracticeApplication {
 
-    public static void main(String[] args) {
-        ApplicationContext ct = SpringApplication.run(SpringpracticeApplication.class, args);
+    @Bean
+    public Person giveMeAPerson() {
+        return new Person("Béla", 20);
+    }
 
-        String[] beanArray = ct.getBeanDefinitionNames();
+    public static void main(String[] args) {
+        ApplicationContext context = SpringApplication.run(SpringpracticeApplication.class, args);
+
+        String[] beanArray = context.getBeanDefinitionNames();
         Arrays.sort(beanArray);
 
         for (String name: beanArray){
